@@ -8,6 +8,7 @@ public class Cannons : MonoBehaviour
     public GameObject laserPrefab;
     public Transform firePoint;
     public float laserSpeed = 10f;
+    public AudioSource shootingSound;
     private void Update()
     {
         float horizontalInput = Input.GetAxisRaw("Horizontal");
@@ -36,6 +37,7 @@ public class Cannons : MonoBehaviour
 
             // Set the laser's initial velocity based on the direction and speed
             newLaser.GetComponent<Rigidbody2D>().velocity = direction * laserSpeed;
+            shootingSound.Play();
         }  
     }
 }

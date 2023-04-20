@@ -12,6 +12,7 @@ public class Player_Life : MonoBehaviour
     Vector3 originalPosition;
     private Score_Manager score_Manager;
     private GameObject score;
+    public AudioSource lost;
     private void Start()
     {
         originalPosition = hpBarImage.rectTransform.localPosition;
@@ -21,6 +22,7 @@ public class Player_Life : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
+            lost.Play();
             score = GameObject.FindWithTag("Score");
             score_Manager = score.GetComponent<Score_Manager>();
             int total = score_Manager.GetScore();

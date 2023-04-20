@@ -7,9 +7,12 @@ public class Player_Movement : MonoBehaviour
     private Camera mainCamera;
     private float xMin, xMax, yMin, yMax;
     public Player_Life player_Life;
-
+    private GameObject playerShot;
+    private AudioSource playerShotAudio;
     private void Start()
     {
+        playerShot = GameObject.FindWithTag("PlayerShot");
+        playerShotAudio = playerShot.GetComponent<AudioSource>();
         mainCamera = Camera.main;
         CalculateScreenBounds();
     }
@@ -81,6 +84,7 @@ public class Player_Movement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("EnemyLaser"))
         {
+            playerShotAudio.Play();
             player_Life.UpdateHealth(player_Life.currentHealth - 10);
         }
         if (collision.gameObject.CompareTag("EnemyShip1"))

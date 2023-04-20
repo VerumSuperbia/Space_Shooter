@@ -16,6 +16,10 @@ TagManager:
   - EnemyShip1
   - EnemyShip2
   - EnemyShip3
+  - BreakingMeteor
+  - ShatteredMeteor
+  - EnemyDestroyed
+  - PlayerShot
   layers:
   - Default
   - TransparentFX

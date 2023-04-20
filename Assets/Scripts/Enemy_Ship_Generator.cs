@@ -8,7 +8,6 @@ public class Enemy_Ship_Generator : MonoBehaviour
     public float time_interval = 8f;
     float height; //width;
     public GameObject Player;
-
     // Start is called before the first frame update
     void Start()
     {

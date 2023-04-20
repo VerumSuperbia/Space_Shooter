@@ -7,9 +7,17 @@ public class Meteor : MonoBehaviour
     private float hp;
     private Score_Manager score_Manager;
     private GameObject score;
+    private GameObject breakingSound;
+    private AudioSource breakingSoundAudio;
+    private GameObject meteorDestroyed;
+    private AudioSource meteorDestroyedAudio;
     // Start is called before the first frame update
     void Start()
     {
+        breakingSound = GameObject.FindWithTag("BreakingMeteor");
+        breakingSoundAudio = breakingSound.GetComponent<AudioSource>();
+        meteorDestroyed = GameObject.FindWithTag("ShatteredMeteor");
+        meteorDestroyedAudio= meteorDestroyed.GetComponent<AudioSource>();
         score = GameObject.FindWithTag("Score");
         score_Manager = score.GetComponent<Score_Manager>();
         Destroy(gameObject, 2f);
@@ -35,6 +43,7 @@ public class Meteor : MonoBehaviour
     {
         if (hp == 0)
         {
+            meteorDestroyedAudio.Play();
             if (gameObject.tag.Equals("meteor1"))
             {
                 score_Manager.AddScore(100);
@@ -54,8 +63,9 @@ public class Meteor : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            breakingSoundAudio.Play();
             Destroy(gameObject);
-        }   
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

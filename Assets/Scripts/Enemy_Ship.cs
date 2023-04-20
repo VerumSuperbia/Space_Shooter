@@ -14,6 +14,9 @@ public class Enemy_Ship : MonoBehaviour
     public float updateInterval = 0.2f;
     private Score_Manager score_Manager;
     private GameObject score;
+    public AudioSource shootingSound;
+    private GameObject destroyedShip;
+    private AudioSource destroyedShipAudio;
     private void GenerateEnemyLaser()
     {
         // Direction of the laser.
@@ -33,6 +36,8 @@ public class Enemy_Ship : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        destroyedShip = GameObject.FindWithTag("EnemyDestroyed");
+        destroyedShipAudio = destroyedShip.GetComponent<AudioSource>();
         score = GameObject.FindWithTag("Score");
         score_Manager = score.GetComponent<Score_Manager>();
         Destroy(gameObject, 3f);
@@ -59,10 +64,12 @@ public class Enemy_Ship : MonoBehaviour
         if (timer >= updateInterval)
         {
             GenerateEnemyLaser();
+            shootingSound.Play();
             timer = 0f;
         }
         if (hp == 0)
         {
+            destroyedShipAudio.Play();
             score_Manager.AddScore(1000);
             Destroy(gameObject);
         }

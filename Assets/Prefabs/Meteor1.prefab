@@ -146,5 +146,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ac28e3984ae85a4097df73164e47b7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score_Manager: {fileID: 0}
-  score: {fileID: 0}
+  breakingSound: {fileID: 2668676450645293189, guid: 0957d2dde4c88ac4f83aaa2a2a85f7fa, type: 3}
