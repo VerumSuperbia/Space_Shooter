@@ -12,7 +12,6 @@ public class Player_Movement : MonoBehaviour
     {
         mainCamera = Camera.main;
         CalculateScreenBounds();
-        //player_Life = GetComponent<Player_Life>();
     }
 
     private void Update()
@@ -84,9 +83,17 @@ public class Player_Movement : MonoBehaviour
         {
             player_Life.UpdateHealth(player_Life.currentHealth - 10);
         }
-        if (collision.gameObject.CompareTag("EnemyShip"))
+        if (collision.gameObject.CompareTag("EnemyShip1"))
+        {
+            player_Life.UpdateHealth(player_Life.currentHealth - 30);
+        }
+        if (collision.gameObject.CompareTag("EnemyShip2"))
         {
             player_Life.UpdateHealth(player_Life.currentHealth - 50);
+        }
+        if (collision.gameObject.CompareTag("EnemyShip3"))
+        {
+            player_Life.UpdateHealth(player_Life.currentHealth - 70);
         }
     }
 }

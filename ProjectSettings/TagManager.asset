@@ -13,6 +13,9 @@ TagManager:
   - EnemyShip
   - EnemyLaser
   - Score
+  - EnemyShip1
+  - EnemyShip2
+  - EnemyShip3
   layers:
   - Default
   - TransparentFX
@@ -49,7 +52,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Meteors
-    uniqueID: 1425971029
     locked: 0

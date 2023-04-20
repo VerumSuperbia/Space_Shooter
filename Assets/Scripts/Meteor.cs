@@ -61,9 +61,17 @@ public class Meteor : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("PlayerLaser"))
         {
-            hp -= 1;     
+            hp -= 1;
         }
-        if (collision.gameObject.CompareTag("EnemyShip"))
+        if (collision.gameObject.CompareTag("EnemyShip1"))
+        {
+            Destroy(gameObject);
+        }
+        if (collision.gameObject.CompareTag("EnemyShip2"))
+        {
+            Destroy(gameObject);
+        }
+        if (collision.gameObject.CompareTag("EnemyShip3"))
         {
             Destroy(gameObject);
         }

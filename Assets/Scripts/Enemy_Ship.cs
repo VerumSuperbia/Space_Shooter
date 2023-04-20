@@ -1,12 +1,15 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Enemy_Ship : MonoBehaviour
 {
+    private Vector2 ori_size;
+    private float scale;
     public GameObject laserPrefab;
     public Transform firePoint1;
     public Transform firePoint2;
     public float laserSpeed = 10f;
-    private float hp = 3;
+    private float hp = 4;
     private float timer = 0f;
     public float updateInterval = 0.2f;
     private Score_Manager score_Manager;
@@ -33,6 +36,20 @@ public class Enemy_Ship : MonoBehaviour
         score = GameObject.FindWithTag("Score");
         score_Manager = score.GetComponent<Score_Manager>();
         Destroy(gameObject, 3f);
+        int choice = Random.Range(1, 4);
+        ori_size = transform.localScale;
+        if (choice == 1)
+        {
+            transform.localScale = ori_size * 0.5f;
+            gameObject.tag = "EnemyShip1"; hp = 2;
+        }
+        else if (choice == 3)
+        {
+            transform.localScale = ori_size * 1.5f;
+            gameObject.tag = "EnemyShip3"; hp = 6;
+        }
+        else { gameObject.tag = "EnemyShip2"; }
+        scale = transform.localScale.x / ori_size.x;
     }
 
     // Update is called once per frame

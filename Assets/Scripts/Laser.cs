@@ -21,7 +21,15 @@ public class Laser : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        if (collision.gameObject.CompareTag("EnemyShip"))
+        if (collision.gameObject.CompareTag("EnemyShip1"))
+        {
+            Destroy(gameObject);
+        }
+        if (collision.gameObject.CompareTag("EnemyShip2"))
+        {
+            Destroy(gameObject);
+        }
+        if (collision.gameObject.CompareTag("EnemyShip3"))
         {
             Destroy(gameObject);
         }
